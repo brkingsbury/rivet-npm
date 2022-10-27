@@ -1,0 +1,1 @@
+{"version":3,"file":"rivet-smart-funding-icon.component.d.ts","sources":["rivet-smart-funding-icon.component.d.ts"],"names":[],"mappings":";AAAA;AACA;AACA;;;AACA","sourcesContent":["export declare class RivetSmartFundingComponent {\n    smartFundingCharacter: string;\n    smartFundingTooltip: string;\n}\n"]}

@@ -1,0 +1,112 @@
+@import '../styles/mixins.scss'; // needed for keyboard focus mixin
+
+$RadioSize: 19px;
+
+.rvt-radio {
+  display: inline-block;
+
+  input[type='radio'] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+
+    + label {
+      position: relative;
+      font-family: var(--rvt-font-family);
+      font-size: var(--rvt-font-size-g);
+      font-weight: var(--rvt-font-weight-regular);
+      color: var(--rvt-color-radio-label);
+      cursor: pointer;
+      text-align: center;
+
+      &:before {
+        font-size: $RadioSize;
+        vertical-align: middle;
+        margin-top: -0.25em;
+        margin-right: 5px;
+        display: inline-block;
+      }
+    }
+
+    &:not(:checked) {
+      // hover unchecked
+      &:hover:not(:disabled) + label:before {
+        @extend .inner-rivet-icon-radio-unchecked-h !optional;
+        color: var(--rvt-color-radio-unselected);
+      }
+      // resting unchecked
+      + label:before {
+        @extend .inner-rivet-icon-radio-unchecked !optional;
+        color: var(--rvt-color-radio-unselected);
+      }
+    }
+
+    &:checked {
+      // hover checked
+      &:hover:not(:disabled) + label:before {
+        @extend .inner-rivet-icon-radio-checked-h !optional;
+        color: var(--rvt-color-radio-selected);
+      }
+      // resting unchecked
+      + label:before {
+        @extend .inner-rivet-icon-radio-checked !optional;
+        color: var(--rvt-color-radio-selected);
+      }
+    }
+
+    &:disabled {
+      + label, + label:before {
+        color: var(--rvt-color-radio-disabled);
+        cursor: default;
+      }
+
+      &.read-only {
+        + label {
+          color: var(--rvt-color-radio-label);
+        }
+        &:not(:checked) + label:before {
+          content: '';
+        }
+        &:checked + label:before {
+          color: var(--rvt-color-radio-readonly);
+          @extend .inner-rivet-icon-radio-read-only !optional;
+        }
+      }
+    }
+
+    &.small-radio {
+      + label {
+        font-size: 12px;
+
+        &:before {
+          font-size: calc(#{$RadioSize} - 2px);
+        }
+      }
+    }
+  }
+
+  &.label-above input[type='radio'] + label {
+    display: inline-flex;
+    flex-direction: column-reverse;
+    margin-right: 15px;
+    font-size: 12px;
+
+    &:before {
+      position: relative;
+      display: block;
+      margin: 0 auto;
+      left: 0;
+    }
+  }
+}
+
+.key-focus {
+  .rvt-radio input[type='radio'] {
+    outline: none;
+
+    &:focus + label:before,
+    &:active + label:before {
+      @include keyboard-focus-style;
+    }
+  }
+}

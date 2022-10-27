@@ -1,0 +1,9 @@
+export declare class RivetThemingService {
+    private customThemeTag;
+    setDarkMode(dark: any): void;
+    setColorVariable(variable: any, value: any): void;
+    getCurrentMode(): boolean;
+    initTheme(): void;
+    applyCustomTheme(themeObj: any): void;
+    removeCustomTheme(): void;
+}

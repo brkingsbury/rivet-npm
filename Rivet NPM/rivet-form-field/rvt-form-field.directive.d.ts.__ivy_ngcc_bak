@@ -1,0 +1,33 @@
+import { AfterContentInit, OnDestroy, Renderer2 } from '@angular/core';
+import { MatFormField } from '@angular/material/form-field';
+export declare class RivetFormFieldDirective implements AfterContentInit, OnDestroy {
+    private matFormField;
+    private renderer;
+    private unsubscribe;
+    private readonly formControlInvalid;
+    private readonly standardClass;
+    private readonly errorClass;
+    private nativeElement;
+    private messageDisplayState;
+    constructor(matFormField: MatFormField, renderer: Renderer2);
+    ngAfterContentInit(): void;
+    ngOnDestroy(): void;
+    /**
+     * Per UX specifications we want to deviate from Material Behaviors for Rvt Inputs. The following conditions
+     * are required as of 3/19/2020
+     *
+     * Inputs should not show errors or have error formatting before they are focused.
+     * When an input is focused if there are errors, show error formatting and error text.
+     * If the input is invalid keep showing the error after the user has left the field.
+     * When the input is focused and there are no errors, display a hint.
+     * When the input is valid but is not focused hints should be hidden.
+     *
+     * This can be accomplished by using a combination of touched and focused states. If untouched don't show anything.
+     * If focused show errors or hints respectively.
+     * If the input has been touched show errors.
+     *
+     * If we need to show errors when the user has tried to submit, use the markAllAsTouched on the FormGroup / FormControl
+     * to display all errors on the page. https://angular.io/api/forms/FormControl
+     */
+    private determineDisplayState;
+}

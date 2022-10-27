@@ -1,0 +1,15 @@
+import { EventEmitter } from '@angular/core';
+declare type ExpansionArrowDirection = 'up' | 'down' | 'left' | 'right';
+export declare class RivetMiniExpansionPanelComponent {
+    arrowRight: boolean;
+    openedArrowDirection: ExpansionArrowDirection;
+    closedArrowDirection: ExpansionArrowDirection;
+    set panelOpen(panelOpen: boolean);
+    panelOpenEvent: EventEmitter<void>;
+    private _panelOpen;
+    get panelOpen(): boolean;
+    toggleMiniExpansion: () => void;
+    closeExpansion: () => void;
+    openExpansion: () => void;
+}
+export {};

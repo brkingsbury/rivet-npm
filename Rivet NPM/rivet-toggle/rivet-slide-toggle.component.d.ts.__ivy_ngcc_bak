@@ -1,0 +1,10 @@
+import { EventEmitter } from '@angular/core';
+import { FormControl } from '@angular/forms';
+export declare class RivetSlideToggleComponent {
+    control: FormControl;
+    checked: boolean;
+    disabled: boolean;
+    label: string;
+    toggleEvent: EventEmitter<any>;
+    toggle(): void;
+}

@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700');
+
+:root {
+    --rvt-font-family: 'Nunito Sans', Arial, sans-serif;
+
+    --rvt-font-weight-light: 200;
+    --rvt-font-weight-regular: 400;
+    --rvt-font-weight-bold: 700;
+
+    --rvt-font-display-1: 6.8rem;
+    --rvt-font-display-2: 5.7rem;
+    --rvt-font-size-a: 4.7rem;
+    --rvt-font-size-b: 4.0rem;
+    --rvt-font-size-c: 3.3rem;
+    --rvt-font-size-d: 2.8rem;
+    --rvt-font-size-e: 2.3rem;
+    --rvt-font-size-f: 1.9rem;
+    --rvt-font-size-g: 1.6rem;
+    --rvt-font-size-h: 1.4rem;
+
+    --rvt-font-display-1-min: 5.7rem;
+    --rvt-font-display-2-min: 4.7rem;
+    --rvt-font-size-a-min: 4.0rem;
+    --rvt-font-size-b-min: 3.3rem;
+    --rvt-font-size-c-min: 2.8rem;
+    --rvt-font-size-d-min: 2.3rem;
+    --rvt-font-size-e-min: 1.9rem;
+    --rvt-font-size-f-min: 1.6rem;
+}
+$RvtFontFamily: var(--rvt-font-family);
+
+@mixin rvt-font-display-1 {
+    font-weight: var(--rvt-font-weight-regular);
+    font-size: var(--rvt-font-display-1-min);
+    font-family: var(--rvt-font-family);
+
+    @media screen and (min-width: 320px) {
+        font-size: calc(#{var(--rvt-font-display-1-min)} + 11 * ((100vw - 320px) / 680));
+    }
+
+    @media screen and (min-width: 1000px) {
+        font-size: var(--rvt-font-display-1); // max size
+    }
+}
+
+@mixin rvt-font-display-2 {
+    font-weight: var(--rvt-font-weight-regular);
+    font-size: var(--rvt-font-display-2-min);
+    font-family: var(--rvt-font-family);
+
+    @media screen and (min-width: 320px) {
+        font-size: calc(#{var(--rvt-font-display-2-min)} + 10 * ((100vw - 320px) / 680));
+    }
+
+    @media screen and (min-width: 1000px) {
+        font-size: var(--rvt-font-display-2); // max size
+    }
+}
+
+@mixin rvt-font-a {
+    font-weight: var(--rvt-font-weight-regular);
+    font-size: var(--rvt-font-size-a-min);
+    font-family: var(--rvt-font-family);
+
+    @media screen and (min-width: 320px) {
+        font-size: calc(#{var(--rvt-font-size-a-min)} + 7 * ((100vw - 320px) / 680));
+    }
+
+    @media screen and (min-width: 1000px) {
+        font-size: var(--rvt-font-size-a);
+    }
+}
+
+@mixin rvt-font-b {
+    font-weight: var(--rvt-font-weight-regular);
+    font-size: var(--rvt-font-size-b-min);
+    font-family: var(--rvt-font-family);
+
+    @media screen and (min-width: 320px) {
+        font-size: calc(#{var(--rvt-font-size-b-min)} + 7 * ((100vw - 320px) / 680));
+    }
+
+    @media screen and (min-width: 1000px) {
+        font-size: var(--rvt-font-size-b);
+    }
+}
+
+
+@mixin rvt-font-c {
+    font-weight: var(--rvt-font-weight-regular);
+    font-size: var(--rvt-font-size-c-min);
+    font-family: var(--rvt-font-family);
+
+    @media screen and (min-width: 320px) {
+        font-size: calc(#{var(--rvt-font-size-c-min)} + 5 * ((100vw - 320px) / 680));
+    }
+
+    @media screen and (min-width: 1000px) {
+        font-size: var(--rvt-font-size-c);
+    }
+}
+
+@mixin rvt-font-d {
+    font-weight: var(--rvt-font-weight-regular);
+    font-size: var(--rvt-font-size-d-min);
+    font-family: var(--rvt-font-family);
+
+    @media screen and (min-width: 320px) {
+        font-size: calc(#{var(--rvt-font-size-d-min)} + 5 * ((100vw - 320px) / 680));
+    }
+
+    @media screen and (min-width: 1000px) {
+        font-size: var(--rvt-font-size-d);
+    }
+}
+
+@mixin rvt-font-e {
+    font-weight: var(--rvt-font-weight-regular);
+    font-size: var(--rvt-font-size-e-min);
+    font-family: var(--rvt-font-family);
+
+    @media screen and (min-width: 320px) {
+        font-size: calc(#{var(--rvt-font-size-e-min)} + 4 * ((100vw - 320px) / 680));
+    }
+
+    @media screen and (min-width: 1000px) {
+        font-size: var(--rvt-font-size-e);
+    }
+}
+
+@mixin rvt-font-f {
+    font-weight: var(--rvt-font-weight-regular);
+    font-size: var(--rvt-font-size-f-min);
+    font-family: var(--rvt-font-family);
+
+    @media screen and (min-width: 320px) {
+        font-size: calc(#{var(--rvt-font-size-f-min)} + 3 * ((100vw - 320px) / 680));
+    }
+
+    @media screen and (min-width: 1000px) {
+        font-size: var(--rvt-font-size-f);
+    }
+}
+
+@mixin rvt-font-g {
+    font-weight: var(--rvt-font-weight-regular);
+    font-size: var(--rvt-font-size-g);
+    font-family: var(--rvt-font-family);
+}
+
+@mixin rvt-font-h {
+    font-weight: var(--rvt-font-weight-regular);
+    font-size: var(--rvt-font-size-h);
+    font-family: var(--rvt-font-family);
+}
+
+
+.rvt-font-display-1 {
+    @include rvt-font-display-1;
+}
+
+.rvt-font-display-2 {
+    @include rvt-font-display-2;
+}
+
+.rvt-font-a {
+    @include rvt-font-a;
+}
+
+.rvt-font-b {
+    @include rvt-font-b;
+}
+
+.rvt-font-c {
+    @include rvt-font-c;
+}
+
+.rvt-font-d {
+    @include rvt-font-d;
+}
+
+.rvt-font-e {
+    @include rvt-font-e;
+}
+
+.rvt-font-f {
+    @include rvt-font-f;
+}
+
+.rvt-font-g {
+    @include rvt-font-g;
+}
+
+.rvt-font-h {
+    @include rvt-font-h;
+}
+
+body {
+    font-family: var(--rvt-font-family);
+    color: var(--rvt-color-text);
+    font-size: var(--rvt-font-size-h); // set min font size
+}
+
+input,
+textarea,
+label {
+    font-family: var(--rvt-font-family);
+    font-size: var(--rvt-font-size-g);
+}
+
+a.rvt-link {
+    font-size: var(--rvt-font-size-g);
+    text-decoration: underline;
+    color: var(--rvt-color-link);
+
+    &.inverse {
+        color: var(--rvt-link-inverse);
+    }
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:focus:not(:active) {
+        outline-offset: 1px;
+    }
+}
+
+button {
+    font-family: var(--rvt-font-family);
+}

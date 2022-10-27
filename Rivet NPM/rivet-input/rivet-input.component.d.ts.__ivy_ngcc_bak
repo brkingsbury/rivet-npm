@@ -1,0 +1,36 @@
+import { OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { RulesetService } from '../rivet-services/ruleset.service';
+export declare class RivetInputComponent implements OnInit {
+    private rulesetService;
+    constructor(rulesetService: RulesetService);
+    get valid(): boolean;
+    get invalid(): boolean;
+    get untouched(): boolean;
+    get touched(): boolean;
+    get pristine(): boolean;
+    get dirty(): boolean;
+    get vacant(): boolean;
+    get nonvacant(): boolean;
+    get pending(): boolean;
+    control: FormControl;
+    get errors(): false | import("@angular/forms").ValidationErrors;
+    validators: any[];
+    asyncValidators: any[];
+    ruleset: any;
+    name: any;
+    autocomplete: any;
+    autofocus: any;
+    disabled: any;
+    form: any;
+    list: any;
+    readonly: any;
+    required: any;
+    tabindex: any;
+    type: any;
+    value: any;
+    icon: any;
+    field: any;
+    onclick(self: any): void;
+    ngOnInit(): void;
+}

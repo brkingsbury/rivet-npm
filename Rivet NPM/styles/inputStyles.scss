@@ -1,0 +1,294 @@
+mat-form-field.mat-form-field-type-mat-input {
+  // type-mat-input is used to specify input instead of dropdown
+  max-width: 100%;
+  font-family: var(--rvt-font-family);
+  font-size: 16px;
+  font-weight: var(--rvt-font-weight-regular);
+  vertical-align: top;
+
+  * {
+    font-family: var(--rvt-font-family); // Extra precaution for all of Materials random child elements
+  }
+
+  &.rvt-input-sm {
+    width: 45px;
+  }
+
+  &.rvt-input-md {
+    width: 135px;
+  }
+
+  &.rvt-input-lg {
+    width: 210px;
+  }
+
+  &.rvt-input-full {
+    width: 100%;
+  }
+
+  // base styles for all parts of the form field
+  .mat-form-field-wrapper {
+
+    input {
+      font-family: var(--rvt-font-family);
+      font-size: 16px;
+      font-weight: var(--rvt-font-weight-regular);
+      color: var(--rvt-color-input-text);
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .mat-form-field-label-wrapper {
+      overflow: visible;
+
+      label.mat-form-field-label span {
+        font-family: var(--rvt-font-family);
+        font-size: 16px;
+        font-weight: var(--rvt-font-weight-regular);
+        color: var(--rvt-color-input-label);
+        overflow: visible;
+
+        &.mat-form-field-empty {
+          color: var(--rvt-color-input-text);
+        }
+
+        .mat-placeholder-required {
+          color: var(--rvt-color-input-label);
+        }
+      }
+    }
+
+    .mat-form-field-underline {
+      position: relative;
+      bottom: initial;
+      height: 1px;
+      background-color: var(--rvt-color-input-bar);
+      margin-bottom: 0;
+      transition: background-color 200ms ease;
+
+      .mat-form-field-ripple {
+        display: none; // fallback in case ripple is not disabled
+      }
+    }
+
+    .mat-form-field-subscript-wrapper {
+      position: relative;
+
+      .mat-form-field-hint-wrapper mat-hint {
+        font-family: var(--rvt-font-family);
+        font-size: 14px;
+        font-weight: var(--rvt-font-weight-regular);
+        color: var(--rvt-color-input-helper);
+      }
+
+      mat-error {
+        font-family: var(--rvt-font-family);
+        font-size: 14px;
+        font-weight: var(--rvt-font-weight-regular);
+      }
+    }
+  }
+
+  // hover styles
+  &:hover:not(.mat-form-field-disabled) .mat-form-field-underline {
+    margin-bottom: -1px;
+    height: 2px;
+  }
+
+  // focused styles
+  &.mat-focused:not(.mat-form-field-disabled) {
+    .mat-form-field-label-wrapper label.mat-form-field-label {
+      color: var(--rvt-color-input-label-focus);
+
+      &.mat-form-field-empty {
+        color: var(--rvt-color-input-label-focus);
+      }
+    }
+
+    .mat-form-field-underline {
+      margin-bottom: -1px;
+      height: 2px;
+      background-color: var(--rvt-color-input-bar-active);
+    }
+  }
+
+  // disabled styles
+  &.mat-form-field-disabled {
+    input {
+      color: var(--rvt-color-input-text-disabled);
+    }
+
+    .mat-form-field-underline {
+      margin-bottom: 0;
+      height: 1px;
+      background: repeating-linear-gradient(90deg,
+      var(--rvt-color-input-bar-disabled),
+      var(--rvt-color-input-bar-disabled) 5px,
+          transparent 5px,
+          transparent 10px);
+    }
+  }
+
+  // read-only styles
+  &.read-only,
+  &.read-only.mat-form-field-disabled {
+    input {
+      color: var(--rvt-color-input-text-readonly);
+    }
+
+    .mat-form-field-underline {
+      margin-bottom: -1px;
+      height: 2px;
+      background: transparent;
+    }
+
+    .mat-form-field-hint-wrapper mat-hint {
+      display: none;
+    }
+  }
+
+  // invalid styles
+  @mixin invalidStyles {
+
+    .mat-form-field-label-wrapper label.mat-form-field-label,
+    .mat-form-field-label-wrapper label.mat-form-field-empty {
+      color: var(--rvt-color-input-label-invalid);
+
+      span {
+        color: var(--rvt-color-input-label-invalid);
+      }
+
+      .mat-placeholder-required {
+        color: var(--rvt-color-input-label-invalid);
+      }
+    }
+
+    input {
+      color: var(--rvt-color-input-text-invalid);
+    }
+
+    mat-hint,
+    mat-error {
+      color: var(--rvt-color-input-label-invalid);
+    }
+
+    .mat-placeholder-required {
+      color: var(--rvt-color-input-label-invalid);
+    }
+
+    .mat-form-field-underline,
+    &.mat-focused .mat-form-field-underline {
+      background-color: var(--rvt-color-input-bar-invalid);
+    }
+  }
+
+  &[rvt-form-field].rvt-form-field-error {
+    @include invalidStyles;
+  }
+
+  &:not([rvt-form-field]) {
+
+    &.invalid,
+    &.ng-invalid,
+    &.mat-form-field-invalid {
+      @include invalidStyles;
+    }
+
+  }
+
+
+}
+
+// ---------------- Rivet Text Area Styles ---------------
+.rvt-input-wrap {
+  display: inline-block;
+  position: relative;
+  padding-bottom: 18px;
+
+  label {
+    display: block;
+    font-family: var(--rvt-font-family);
+    font-size: 12px;
+    font-weight: var(--rvt-font-weight-regular);
+    color: var(--rvt-color-input-label);
+  }
+
+  textarea {
+    background-color: transparent;
+    display: block;
+    font-family: var(--rvt-font-family);
+    font-size: 16px;
+    font-weight: var(--rvt-font-weight-regular);
+    padding: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--rvt-color-input-bar);
+    min-height: 22px;
+    min-width: 120px;
+    color: var(--rvt-color-input-text);
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+
+    &:hover:not(:disabled),
+    &:focus:not(:disabled),
+    &:active:not(:disabled) {
+      border-width: 2px;
+      padding: 3px;
+    }
+
+    &:focus:not(:disabled),
+    &:active:not(:disabled) {
+      border-color: var(--rvt-color-input-bar-active);
+    }
+
+    &:disabled {
+      border-width: 1px;
+      border-style: dashed;
+      border-color: var(--rvt-color-input-bar-disabled);
+      color: var(--rvt-color-text-disabled);
+      cursor: default;
+    }
+  }
+
+  .helper-text {
+    position: absolute;
+    font-family: var(--rvt-font-family);
+    font-size: 12px;
+    font-weight: var(--rvt-font-weight-regular);
+    bottom: 0;
+    color: var(--rvt-color-input-helper);
+  }
+
+  &.required {
+    label:after {
+      content: ' *';
+      font-size: 12px;
+      color: var(--rvt-color-input-label);
+    }
+  }
+
+  &.invalid {
+
+    label,
+    .helper-text {
+      color: var(--rvt-color-input-helper-invalid);
+    }
+
+    textarea {
+      border-color: var(--rvt-color-input-bar-invalid);
+
+      &:focus:not(:disabled),
+      &:active:not(:disabled) {
+        border-color: var(--rvt-color-input-bar-invalid);
+        outline-color: var(--rvt-color-input-bar-invalid);
+      }
+    }
+
+    &.required {
+      label:after {
+        color: var(--rvt-color-input-helper-invalid);
+      }
+    }
+  }
+}

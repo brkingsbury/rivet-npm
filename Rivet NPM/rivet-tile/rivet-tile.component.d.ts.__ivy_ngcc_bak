@@ -1,0 +1,22 @@
+import { EventEmitter } from '@angular/core';
+import { FormControl } from '@angular/forms';
+export declare type TileState = 'Disabled' | 'Pending' | 'Selected' | 'Unselected' | 'ReadOnly';
+export declare class RivetTileComponent {
+    config: {
+        editText: any;
+        cancelBtnText: string;
+        deleteBtnText: string;
+        deleteText: string;
+    };
+    control: FormControl;
+    state: TileState;
+    tileSelect: EventEmitter<any>;
+    tileEdit: EventEmitter<any>;
+    tileDelete: EventEmitter<any>;
+    deleting: boolean;
+    editTile(): void;
+    selectTile(): void;
+    deleteTile(): void;
+    confirmDelete(): void;
+    cancelDelete(): void;
+}

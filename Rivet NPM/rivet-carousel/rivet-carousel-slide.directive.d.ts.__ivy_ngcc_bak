@@ -1,0 +1,11 @@
+import { ElementRef, Renderer2 } from '@angular/core';
+export declare class RivetCarouselSlideDirective {
+    renderer: Renderer2;
+    private el;
+    constructor(renderer: Renderer2, el: ElementRef);
+    private filterArray;
+    hideTabindex(): void;
+    showTabindex(): void;
+    removeFromIndex(element: any): void;
+    addToIndex(element: any): void;
+}

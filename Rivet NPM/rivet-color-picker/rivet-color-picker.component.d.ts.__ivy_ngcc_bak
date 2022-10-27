@@ -1,0 +1,13 @@
+import { EventEmitter, OnInit, OnChanges } from '@angular/core';
+import { RivetColorFunctionsService } from '../rivet-services/color-functions.service';
+export declare class RivetColorPickerComponent implements OnInit, OnChanges {
+    rvtColorService: RivetColorFunctionsService;
+    colorValue: any;
+    colorValueChange: EventEmitter<any>;
+    pickerContrast: boolean;
+    constructor(rvtColorService: RivetColorFunctionsService);
+    emitEvent(): void;
+    setPickerContrast(): void;
+    ngOnInit(): void;
+    ngOnChanges(): void;
+}

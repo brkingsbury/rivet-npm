@@ -1,0 +1,178 @@
+@import '../styles/mixins.scss'; // needed for keyboard focus mixin
+
+$CheckboxSize: 18px;
+
+.rvt-checkbox {
+  input[type='checkbox'] {
+    opacity: 0;
+    position: absolute;
+    z-index: 100;
+    height: $CheckboxSize;
+    width: $CheckboxSize;
+    margin: 3px 0 0 3px;
+    cursor: pointer;
+
+    + label {
+      position: relative;
+      display: inline-block;
+      padding-left: 25px;
+      font-family: var(--rvt-font-family);
+      font-weight: var(--rvt-font-weight-regular);
+      font-size: 14px;
+      color: var(--rvt-color-checkbox-label);
+      cursor: pointer;
+      text-align: center;
+
+      &:before {
+        content: '';
+        position: absolute;
+        display: inline-block;
+        height: calc(#{$CheckboxSize} - 2px);
+        width: calc(#{$CheckboxSize} - 2px);
+        left: 3px;
+        top: 1px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: var(--rvt-color-checkbox-unselected-border);
+        border-radius: 2px;
+      }
+
+      &:after {
+        content: none;
+        position: absolute;
+        display: inline-block;
+        left: 6px;
+        top: 4px;
+        font-size: 12px;
+        font-weight: var(--rvt-font-weight-bold);
+      }
+    }
+
+    &:checked + label {
+      &:before {
+        background-color: var(--rvt-color-checkbox-selected-bg);
+        border: none;
+        height: $CheckboxSize;
+        width: $CheckboxSize;
+      }
+
+      &:after {
+        @extend .inner-rivet-icon-check !optional;
+        color: var(--rvt-color-checkbox-selected-check);
+      }
+    }
+
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
+      &:not(:checked) + label:before {
+        border-width: 2px;
+        height: calc(#{$CheckboxSize} - 4px);
+        width: calc(#{$CheckboxSize} - 4px);
+      }
+
+      &:checked + label:before {
+        background-color: var(--rvt-color-checkbox-selected-bg-hover);
+        transition: background-color 400ms ease;
+      }
+    }
+
+    &:disabled {
+      cursor: default;
+      + label {
+        color: var(--rvt-color-checkbox-disabled);
+        cursor: default;
+
+        &:before {
+          cursor: default;
+          background: none;
+          border-width: 1px;
+          border-style: dashed;
+          border-color: var(--rvt-color-checkbox-disabled);
+        }
+      }
+
+      &:checked + label {
+        &:before {
+          cursor: default;
+          background: none;
+          border-style: dashed;
+          border-color: var(--rvt-color-checkbox-disabled);
+          height: calc(#{$CheckboxSize} - 2px);
+          width: calc(#{$CheckboxSize} - 2px);
+        }
+
+        &:after {
+          color: var(--rvt-color-checkbox-disabled);
+        }
+      }
+    }
+    &:disabled.read-only {
+      + label {
+        color: var(--rvt-color-checkbox-readonly);
+        &:before {
+          border: none;
+        }
+      }
+      &:checked {
+        + label {
+          &:after {
+            color: var(--rvt-color-checkbox-readonly);
+          }
+        }
+      }
+    }
+  }
+
+  &.small-checkbox {
+    input[type='checkbox'] {
+      &:hover:not(:disabled):not(:checked) + label:before,
+      &:focus:not(:disabled):not(:checked) + label:before {
+        height: calc(#{$CheckboxSize} - 6px);
+        width: calc(#{$CheckboxSize} - 6px);
+      }
+      &:checked + label:before {
+        height: calc(#{$CheckboxSize} - 2px);
+        width: calc(#{$CheckboxSize} - 2px);
+      }
+      + label {
+        font-size: 12px;
+        &:before {
+          height: calc(#{$CheckboxSize} - 4px);
+          width: calc(#{$CheckboxSize} - 4px);
+        }
+        &:after {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+  &.label-above {
+    input[type='checkbox'] + label {
+      padding-left: 0;
+      display: inline-flex;
+      flex-direction: column-reverse;
+      font-size: 12px;
+      &:before,
+      &:after {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        left: 0;
+      }
+      &:after {
+        position: absolute;
+        top: 22px;
+        left: calc(50% - 5px);
+      }
+    }
+  }
+}
+.key-focus {
+  .rvt-checkbox input[type='checkbox'] {
+    outline: none;
+    &:focus + label:before,
+    &:active + label:before {
+      @include keyboard-focus-style;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+export declare class RivetColorFunctionsService {
+    constructor();
+    getLuma(color: string): number;
+    generatePrimaryVariants(hexColor: string): {
+        light: string;
+        dark: string;
+    };
+    private hexToHSLObj;
+    private hexToRGBObj;
+    private HSLObjToHex;
+    private changeLightness;
+}

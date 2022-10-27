@@ -1,0 +1,10 @@
+import { OnInit } from '@angular/core';
+export declare class RivetIconComponent implements OnInit {
+    name: string;
+    size: string;
+    label: string;
+    iconName: string;
+    iconSize: string;
+    iconLabel: string;
+    ngOnInit(): void;
+}

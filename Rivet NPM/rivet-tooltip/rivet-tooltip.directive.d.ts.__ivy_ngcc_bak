@@ -1,0 +1,23 @@
+import { AfterViewInit, ElementRef, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+export declare class RvtTooltipDirective implements OnChanges, OnInit, OnDestroy, AfterViewInit {
+    rvtTooltip: string;
+    rvtTooltipClass: string;
+    rvtManualTooltipShow?: boolean;
+    rvtTooltipAbsolutePos?: boolean;
+    rvtTooltipDelay?: number;
+    private tooltipEl;
+    private anchorEl;
+    private hiddenOffset;
+    private tooltipTimeout;
+    constructor(el: ElementRef);
+    getTooltipPosition: () => any;
+    showTooltip: () => void;
+    refreshTooltipPosition: () => void;
+    hideTooltip: () => void;
+    onMouseOver(): void;
+    onMouseOut(): void;
+    ngOnInit(): void;
+    ngAfterViewInit(): void;
+    ngOnChanges(changes: SimpleChanges): void;
+    ngOnDestroy(): void;
+}

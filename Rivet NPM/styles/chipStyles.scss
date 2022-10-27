@@ -1,0 +1,66 @@
+@import '../../lib/styles/typeStyles.scss';
+
+$alpha-color: hsl(323, 47%, 46%);
+$bravo-color: hsl(191, 100%, 33%);
+$charlie-color: hsl(212, 60%, 50%);
+$delta-color: hsl(113, 47%, 46%);
+$echo-color: hsl(23, 60%, 50%);
+
+[class*='rvt-chip'] {
+  @include rvt-font-g;
+  display: inline-flex;
+  padding: var(--rvt-spacing-xs) var(--rvt-spacing-sm);
+  border-radius: 50px;
+  background-color: var(--rvt-color-neutral-2);
+  font-weight: var(--rvt-font-weight-bold);
+  align-items: center;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
+}
+
+%priority-chip {
+  flex-direction: row-reverse;
+  cursor: pointer;
+
+  &:before {
+    margin-left: 5px;
+  }
+}
+
+@mixin chip-color($color) {
+  color: $color;
+  background-color: transparentize($color, 0.8);
+
+  &:hover,
+  &:focus {
+    border-color: $color;
+  }
+}
+
+.rvt-chip {
+  &--alpha {
+    @extend %priority-chip;
+    @include chip-color($alpha-color);
+  }
+
+  &--bravo {
+    @extend %priority-chip;
+    @include chip-color($bravo-color);
+  }
+
+  &--charlie {
+    @extend %priority-chip;
+    @include chip-color($charlie-color);
+  }
+
+  &--delta {
+    @extend %priority-chip;
+    @include chip-color($delta-color);
+  }
+
+  &--echo {
+    @extend %priority-chip;
+    @include chip-color($echo-color);
+  }
+}

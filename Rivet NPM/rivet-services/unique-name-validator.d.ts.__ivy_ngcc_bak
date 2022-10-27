@@ -1,0 +1,10 @@
+import { FormControl } from '@angular/forms';
+export declare class AuthService {
+    constructor();
+    checkLogin(login: string): import("rxjs").Observable<{
+        isLoginAvailable: boolean;
+    }>;
+}
+export declare const LoginAsyncValidator: (authService: AuthService, time?: number) => (input: FormControl) => import("rxjs").Observable<{
+    loginExist: boolean;
+}>;

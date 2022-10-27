@@ -1,0 +1,23 @@
+@mixin rvt-elevation-high {
+    filter: drop-shadow(0 0 35px var(--rvt-color-shadow));
+}
+
+@mixin rvt-elevation-medium {
+    filter: drop-shadow(0 0 20px var(--rvt-color-shadow));
+}
+
+@mixin rvt-elevation-low {
+    filter: drop-shadow(0 0 10px var(--rvt-color-shadow));
+}
+
+.rvt-elevation-high {
+    @include rvt-elevation-high;
+}
+
+.rvt-elevation-medium {
+    @include rvt-elevation-medium;
+}
+
+.rvt-elevation-low {
+    @include rvt-elevation-low;
+}

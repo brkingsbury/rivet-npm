@@ -1,0 +1,13 @@
+import { AfterViewInit, QueryList } from '@angular/core';
+import { RivetCarouselSlideDirective } from './rivet-carousel-slide.directive';
+export declare class RivetCarouselComponent implements AfterViewInit {
+    slides: QueryList<RivetCarouselSlideDirective>;
+    slideIndex: number;
+    slideOffset: string;
+    pageTo(index: any): void;
+    pageForward(): void;
+    pageBack(): void;
+    private focusSlide;
+    onPagerKeydown(e: any): void;
+    ngAfterViewInit(): void;
+}

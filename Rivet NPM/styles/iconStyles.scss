@@ -1,0 +1,165 @@
+// This SASS file is generaged by the icon-font-generator library based on rivet-style/src/lib/rivet-icons/sass-template.hbs
+// The .hbs extension is a Handlebars template, which is a templating language utilized by the icon-font-generator library
+// The library loads svg icons from rivet-style/src/lib/rivet-icons/svgs and compiles them to font files in rivet-style/src/lib/rivet-icons
+// Icon fonts rebuild on calling the build_lib command using 'npm run-script build_lib'
+// To rebuild the icon font independently run build_icons with 'npm run-script build_icons'
+
+$rivet-icon-path: '../rivet-icons' !default;
+
+@font-face {
+    font-family: 'rivet-icons';
+    src: url("#{$rivet-icon-path}/rivet-icons.eot?cc3f412a5805fe23ac37b01d0bb1ea7d?#iefix") format("embedded-opentype"),
+url("#{$rivet-icon-path}/rivet-icons.woff2?cc3f412a5805fe23ac37b01d0bb1ea7d") format("woff2"),
+url("#{$rivet-icon-path}/rivet-icons.woff?cc3f412a5805fe23ac37b01d0bb1ea7d") format("woff"),
+url("#{$rivet-icon-path}/rivet-icons.ttf?cc3f412a5805fe23ac37b01d0bb1ea7d") format("truetype"),
+url("#{$rivet-icon-path}/rivet-icons.svg?cc3f412a5805fe23ac37b01d0bb1ea7d#rivet-icons") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+[data-icon]:before {
+    font-family: 'rivet-icons' !important;
+    content: attr(data-icon);
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+[class^='rivet-icon-']:before,
+[class*=' rivet-icon-']:before {
+    font-family: 'rivet-icons' !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+[class*='rivet-icon-']  {
+  &.sm {
+    font-size: 15px;
+  }
+  &.md {
+    font-size: 20px;
+  }
+  &.lg {
+    font-size: 30px;
+  }
+  &.xl {
+    font-size: 40px;
+  }
+}
+
+@mixin config-icon-content($prefix, $content...) {
+  @each $i in $content {
+    .#{$prefix}#{nth($i, 1)}:before {
+      content: nth($i, 2);
+    }
+    .inner-#{$prefix}#{nth($i, 1)} {
+      font-family: 'rivet-icons' !important;
+      content: nth($i, 2);
+    }
+  }
+}
+@include config-icon-content(
+  'rivet-icon-',
+  'add' '\f101',
+  'adjust' '\f102',
+  'admin' '\f103',
+  'amount' '\f104',
+  'arrange' '\f105',
+  'arrow-left' '\f106',
+  'auditsearch' '\f107',
+  'batch-processor' '\f108',
+  'beginning' '\f109',
+  'bell' '\f10a',
+  'business-admin' '\f10b',
+  'calculator' '\f10c',
+  'caret-down' '\f10d',
+  'caret-left' '\f10e',
+  'caret-right' '\f10f',
+  'caret-up' '\f110',
+  'chart' '\f111',
+  'chat-filled' '\f112',
+  'chat-outline' '\f113',
+  'check' '\f114',
+  'child' '\f115',
+  'clock' '\f116',
+  'copy' '\f117',
+  'critical-illness' '\f118',
+  'datepicker' '\f119',
+  'db-timer-tasks' '\f11a',
+  'delete' '\f11b',
+  'disability-insurance' '\f11c',
+  'down-outlinearrow' '\f11d',
+  'drag-handle' '\f11e',
+  'edit' '\f11f',
+  'education' '\f120',
+  'end' '\f121',
+  'estimate' '\f122',
+  'exclamation1' '\f123',
+  'exclamation2' '\f124',
+  'family' '\f125',
+  'file' '\f126',
+  'flower' '\f127',
+  'graph' '\f128',
+  'help' '\f129',
+  'hidden' '\f12a',
+  'import' '\f12b',
+  'left-outlinearrow' '\f12c',
+  'life-insurance' '\f12d',
+  'location-pin' '\f12e',
+  'locked' '\f12f',
+  'logging' '\f130',
+  'logout' '\f131',
+  'long-term-care-insurance' '\f132',
+  'menu-close' '\f133',
+  'menu-hamburger' '\f134',
+  'more' '\f135',
+  'move-down' '\f136',
+  'move-up' '\f137',
+  'naviplan-activity' '\f138',
+  'new-window' '\f139',
+  'next' '\f13a',
+  'pdf' '\f13b',
+  'person' '\f13c',
+  'presentation' '\f13d',
+  'previous' '\f13e',
+  'print' '\f13f',
+  'purchase' '\f140',
+  'radio-checked-h' '\f141',
+  'radio-checked' '\f142',
+  'radio-read-only' '\f143',
+  'radio-unchecked-h' '\f144',
+  'radio-unchecked' '\f145',
+  'reassignclients' '\f146',
+  'reporteditor' '\f147',
+  'reset' '\f148',
+  'resync' '\f149',
+  'retirement' '\f14a',
+  'search' '\f14b',
+  'settings' '\f14c',
+  'site-manager' '\f14d',
+  'star' '\f14e',
+  'subtract' '\f14f',
+  'sync' '\f150',
+  'table' '\f151',
+  'target' '\f152',
+  'teams' '\f153',
+  'templates' '\f154',
+  'text' '\f155',
+  'transfers' '\f156',
+  'unlocked' '\f157',
+  'up-outlinearrow' '\f158',
+  'visible' '\f159',
+  'worddoc' '\f15a',
+  'xml-store' '\f15b'
+);

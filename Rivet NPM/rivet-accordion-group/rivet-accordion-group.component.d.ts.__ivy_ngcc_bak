@@ -1,0 +1,9 @@
+import { AfterViewInit, OnDestroy } from '@angular/core';
+export declare class RivetAccordionGroupComponent implements AfterViewInit, OnDestroy {
+    private unsubscribe;
+    private panelCollection;
+    private childPanels;
+    ngAfterViewInit(): void;
+    ngOnDestroy(): void;
+    private closeOtherPanels;
+}

@@ -1,0 +1,12 @@
+import { EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+export declare class RivetDrawerComponent implements OnChanges {
+    drawerOpen: boolean;
+    drawerCloseEvent: EventEmitter<null>;
+    apronClickEvent: EventEmitter<null>;
+    get panelOpen(): boolean;
+    toggleDrawer: () => void;
+    closeDrawer: () => void;
+    openDrawer: () => void;
+    apronClick: () => void;
+    ngOnChanges(changes: SimpleChanges): void;
+}

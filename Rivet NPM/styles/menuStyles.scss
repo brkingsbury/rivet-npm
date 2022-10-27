@@ -1,0 +1,58 @@
+@import './elevationStyles.scss';
+
+$arrowSpacing: 15px;
+$arrowSize: 20px;
+
+.cdk-overlay-pane .mat-menu-panel {
+  position: relative;
+  overflow: visible;
+  @include rvt-elevation-low;
+  background-color: var(--rvt-color-menu-bg);
+  border-radius: 4px;
+  padding: 20px;
+
+  &.mat-menu-below {
+    margin-top: $arrowSize;
+
+    &:before,
+    &:after {
+      top: calc(#{$arrowSize} / -2);
+    }
+  }
+
+  &.mat-menu-above {
+    margin-bottom: $arrowSize;
+
+    &:before,
+    &:after {
+      bottom: calc(#{$arrowSize} / -2);
+    }
+  }
+
+  &.mat-menu-before {
+
+    &:before,
+    &:after {
+      right: $arrowSpacing;
+    }
+  }
+
+  &.mat-menu-after {
+
+    &:before,
+    &:after {
+      left: $arrowSpacing;
+    }
+  }
+
+  &:after {
+    content: "";
+    z-index: -1;
+    width: $arrowSize;
+    height: $arrowSize;
+    display: block;
+    background-color: var(--rvt-color-menu-bg);
+    position: absolute;
+    transform: rotate(45deg);
+  }
+}

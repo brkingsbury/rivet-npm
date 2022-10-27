@@ -1,0 +1,7 @@
+@import '~@angular/material/theming'; // needed for mat-core
+@import './mixins.scss';
+@import './themeVariables.scss';
+@import './spacingVariables.scss';
+@import './typeStyles.scss';
+
+@include mat-core(); // needed for material components + overlays (datepickers, dropdowns, etc.)

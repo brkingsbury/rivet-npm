@@ -1,0 +1,240 @@
+@import '../styles/mixins.scss'; // needed for keyboard focus mixin
+
+// Styles for all Rivet Buttons
+@mixin buttonStyle {
+  font-family: var(--rvt-font-family);
+  font-size: 14px;
+  border-radius: 2px;
+  background: none;
+  border: none;
+  padding: 11px 15px;
+  cursor: pointer;
+  transition: background-color 200ms ease;
+  line-height: 14px;
+  text-decoration: none;
+
+  &:disabled:not(.loading) {
+    cursor: default;
+    pointer-events: none;
+    border-width: 1px;
+    border-style: dashed;
+  }
+
+  &:active,
+  &:hover,
+  &:focus,
+  &:active:hover {
+    line-height: 14px;
+    outline: none;
+    text-decoration: none;
+  }
+}
+
+button,
+a {
+
+  &.rvt-btn-primary,
+  &.rvt-btn-primary.rvt-btn-icon,
+  &.rvt-btn-primary-lg,
+  &.rvt-btn-primary-lg.rvt-btn-icon {
+    @include buttonStyle;
+    font-weight: var(--rvt-font-weight-bold);
+    background-color: var(--rvt-color-btn-primary-bg);
+    color: var(--rvt-color-btn-primary-text);
+
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
+      background-color: var(--rvt-color-btn-primary-bg-hover);
+    }
+
+    &:active:not(:disabled) {
+      background-color: var(--rvt-color-btn-primary-bg-active);
+    }
+
+    &:disabled:not(.loading) {
+      font-weight: var(--rvt-font-weight-regular);
+      border-color: var(--rvt-color-btn-primary-border-disabled);
+      background-color: var(--rvt-color-btn-primary-bg-disabled);
+      color: var(--rvt-color-btn-primary-text-disabled);
+    }
+
+    span,
+    span:before {
+      color: var(--rvt-color-btn-primary-text);
+    }
+
+    &.inverse {
+      background-color: var(--rvt-color-btn-primary-inverse-bg);
+      color: var(--rvt-color-btn-primary-inverse-text);
+
+      &:hover:not(:disabled),
+      &:focus:not(:disabled) {
+        background-color: var(--rvt-color-btn-primary-inverse-bg-hover);
+      }
+
+      &:active:not(:disabled) {
+        background-color: var(--rvt-color-btn-primary-inverse-bg-active);
+      }
+    }
+  }
+
+  &.rvt-btn-primary-lg {
+    padding: 15px;
+  }
+
+  &.rvt-btn-secondary {
+    @include buttonStyle;
+    background: var(--rvt-color-btn-secondary-bg);
+    border: 1px solid var(--rvt-color-btn-secondary-border);
+    padding: 10px 14px;
+    color: var(--rvt-color-btn-secondary-text);
+
+    &:hover:not(:disabled),
+    &:focus:not(:disabled),
+    &.loading:disabled {
+      background: var(--rvt-color-btn-secondary-bg-hover);
+    }
+
+    &:active:not(:disabled) {
+      background: var(--rvt-color-btn-secondary-bg-active);
+    }
+
+    &:disabled:not(.loading) {
+      border-color: var(--rvt-color-btn-secondary-disabled-border);
+      color: var(--rvt-color-btn-secondary-disabled-text);
+    }
+
+    &.inverse {
+      border-color: var(--rvt-color-btn-secondary-inverse-border);
+      color: var(--rvt-color-btn-secondary-inverse-text);
+
+      &:hover:not(:disabled),
+      &:focus:not(:disabled),
+      &.loading:disabled {
+        background-color: var(--rvt-color-btn-secondary-inverse-bg-hover);
+      }
+
+      &:active:not(:disabled) {
+        background-color: var(--rvt-color-btn-secondary-inverse-bg-active);
+      }
+    }
+  }
+
+  &.rvt-btn-tertiary {
+    @include buttonStyle;
+    background-color: var(--rvt-color-btn-tertiary-bg);
+    color: var(--rvt-color-btn-tertiary-text);
+
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
+      background-color: var(--rvt-color-btn-tertiary-bg-hover);
+    }
+
+    &:active:not(:disabled) {
+      background-color: var(--rvt-color-btn-tertiary-bg-active);
+    }
+
+    &:disabled {
+      background-color: var(--rvt-color-btn-tertiary-bg-disabled);
+      border-color: var(--rvt-color-btn-tertiary-border-disabled);
+      color: var(--rvt-color-btn-tertiary-text-disabled);
+    }
+  }
+
+  &.rvt-btn-text,
+  &.rvt-btn-icon {
+    @include buttonStyle;
+    background-color: var(--rvt-color-btn-text-bg);
+    color: var(--rvt-color-btn-text);
+
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
+      background-color: var(--rvt-color-btn-text-bg-hover);
+    }
+
+    &.loading:disabled {
+      color: var(--rvt-color-btn-disabled);
+
+      span,
+      span:before {
+        color: var(--rvt-color-btn-disabled);
+      }
+    }
+
+    &:active:not(:disabled) {
+      background-color: var(--rvt-color-btn-text-bg-active);
+    }
+
+    &:disabled:not(.loading) {
+      border: none;
+      color: var(--rvt-color-btn-text-disabled);
+
+      span,
+      span:before {
+        color: var(--rvt-color-btn-text-disabled);
+      }
+    }
+
+    &.inverse {
+      color: var(--rvt-color-btn-text-inverse);
+
+      &:hover:not(:disabled),
+      &:focus:not(:disabled) {
+        background-color: var(--rvt-color-btn-text-inverse-bg-hover);
+      }
+
+      &:active:not(:disabled) {
+        background-color: var(--rvt-color-btn-text-inverse-bg-active);
+      }
+    }
+  }
+
+  &.rvt-btn-icon {
+    @include buttonStyle;
+
+    [class*='rivet-icon-'] {
+      display: inline-block;
+      height: 14px;
+      width: 14px;
+      color: var(--rvt-color-btn-text);
+      vertical-align: top;
+    }
+
+    &.loading:disabled {
+      padding: 11px;
+      line-height: 14px;
+
+      .mat-spinner {
+        margin: 0 auto;
+      }
+    }
+
+    &:disabled:not(.loading) {
+      border: none; 
+      svg {
+        fill: var(--rvt-color-btn-disabled);
+      }
+    }
+
+    span:not([class*='rivet-icon-']) {
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    &.inverse {
+
+      [class*='rivet-icon-'],
+      span {
+        color: var(--rvt-color-btn-text-inverse);
+      }
+    }
+  }
+}
+
+.key-focus {
+
+  button[class^='rvt-btn']:not(:active):focus,
+  a[class^='rvt-btn']:not(:active):focus {
+    @include keyboard-focus-style;
+  }
+}
